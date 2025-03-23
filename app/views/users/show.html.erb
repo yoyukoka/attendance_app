@@ -1,0 +1,8 @@
+<h1>ユーザー情報</h1>
+<p>名前: <%= @user.name %></p>
+<p>メール: <%= @user.email %></p>
+<p>ポジション: <%= @user.position %></p>
+<% if current_user == @user %>
+  <%= link_to 'ユーザー情報を編集', edit_user_registration_path, class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>

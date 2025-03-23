@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     unauthenticated do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
+
+    get 'users/show', to: 'users#show', as: :show_user
   end
 
   resources :events do
