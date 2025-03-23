@@ -1,0 +1,16 @@
+<h1><%= @event.title %></h1>
+<p>日時: <%= @event.date.strftime('%Y年%m月%d日 %H:%M') %></p>
+<p><%= @event.details %></p>
+
+<h3>出席登録</h3>
+<%= form_with url: event_attendances_path(@event), method: :post do %>
+  <%= select_tag :status, options_for_select([['出席', 'present'], ['欠席', 'absent']], @attendance&.status) %>
+  <%= submit_tag '登録' %>
+<% end %>
+
+<h3>ポジション別出席者数</h3>
+<ul>
+  <% @positions_count.each do |position, count| %>
+    <li><%= position || '未設定' %>: <%= count %>人</li>
+  <% end %>
+</ul>

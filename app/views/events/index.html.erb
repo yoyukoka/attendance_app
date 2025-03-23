@@ -1,0 +1,13 @@
+<h1>イベント一覧</h1>
+
+<% @events.each do |event| %>
+  <div>
+    <h2><%= link_to event.title, event %></h2>
+    <p>日時: <%= event.date.strftime('%Y年%m月%d日 %H:%M') %></p>
+    <p><%= event.details %></p>
+  </div>
+<% end %>
+
+<% if current_user&.is_admin? %>
+  <%= link_to '新しいイベントを作成', new_event_path, class: 'btn btn-primary' %>
+<% end %>
