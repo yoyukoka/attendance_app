@@ -11,3 +11,10 @@
 <% if current_user&.is_admin? %>
   <%= link_to '新しいイベントを作成', new_event_path, class: 'btn btn-primary' %>
 <% end %>
+
+<% if user_signed_in? %>
+  <div>
+    <%= link_to 'ユーザー情報', edit_user_registration_path, class: 'btn btn-secondary' %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+  </div>
+<% end %>
