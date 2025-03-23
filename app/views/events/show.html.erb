@@ -4,9 +4,16 @@
 
 <h3>出席登録</h3>
 <%= form_with url: event_attendances_path(@event), method: :post do %>
-  <%= select_tag :status, options_for_select([['出席', 'present'], ['欠席', 'absent']], @attendance&.status) %>
+  <%= select_tag :status, options_for_select([['出席', '出席'], ['欠席', '欠席']], @attendance&.status) %>
   <%= submit_tag '登録' %>
 <% end %>
+
+<h3>出席者</h3>
+<ul>
+  <% @attendances.select {|attendance| attendance.status == '出席'}.each do |attendance| %>
+    <li><%= attendance.user.name %>: <%= attendance.status %></li>
+  <% end %>
+</ul>
 
 <h3>ポジション別出席者数</h3>
 <ul>
@@ -15,11 +22,13 @@
   <% end %>
 </ul>
 
+<ul>
+  <%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>
+</ul>
+
 <% if current_user&.is_admin? %>
   <%= link_to '編集', edit_event_path(@event), class: 'btn btn-primary' %>
   <%= form_with model: @event, method: :delete, local: true do %>
     <%= submit_tag '削除', data: { confirm: '本当にこのイベントを削除しますか？' }, class: 'btn btn-danger' %>
   <% end %>
 <% end %>
-
-<%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>
