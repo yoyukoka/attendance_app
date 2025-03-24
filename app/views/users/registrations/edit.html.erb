@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :position %><br />
-    <%= f.text_field :position %>
+    <%= f.select :position, User.positions.keys.map { |position| [position, position]}, prompt: '選択してください' %>
   </div>
 
   <div class="actions">

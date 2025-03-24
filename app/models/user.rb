@@ -10,6 +10,20 @@ class User < ApplicationRecord
   validates :name, presence: true, on: :update
   validates :position, presence: true, on: :update
 
+  enum position:
+    {
+      PR: 'PR',
+      HO: 'HO',
+      LO: 'LO',
+      FL: 'FL',
+      No8: 'No8',
+      SH: 'SH',
+      SO: 'SO',
+      CTB: 'CTB',
+      WTB: 'WTB',
+      FB: 'FB'
+    }
+
   def attendance_rate
     total_events = Event.count
     attended_events = attendances.where(status: 'present').count
