@@ -1,0 +1,27 @@
+<h1>メンバー一覧</h1>
+
+<div>
+  <%= link_to 'ポジション順', users_path(sort: 'position'), class: 'btn btn-primary' %>
+  <%= link_to '参加率順', users_path(sort: 'attendance_rate'), class: 'btn btn-secondary' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>ポジション</th>
+      <th>参加率</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.position %></td>
+        <td><%= user.attendance_rate %>%</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>

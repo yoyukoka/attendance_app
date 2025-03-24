@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get 'users/show', to: 'users#show', as: :show_user
   end
 
+  resources :users, only: [:index]
+
   resources :events do
     resources :attendances, only: [:create]
   end
