@@ -5432,3 +5432,48 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.4ms)
 
 
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:13)
+Started GET "/events" for ::1 at 2025-03-24 10:51:27 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 19.2ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 95.7ms | GC: 44.6ms)
+Completed 200 OK in 120ms (Views: 97.8ms | ActiveRecord: 2.5ms (2 queries, 0 cached) | GC: 45.7ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-03-24 10:51:28 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/events/7" for ::1 at 2025-03-24 10:51:29 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:47:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."user_id" = ? LIMIT ?[0m  [["event_id", 7], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  [1m[36mAttendance Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "users"."position" AS "users_position" FROM "attendances" INNER JOIN "users" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ? GROUP BY "users"."position"[0m  [["event_id", 7], ["status", "出席"]]
+  ↳ app/controllers/events_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 7]]
+  ↳ app/views/events/show.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/views/events/show.html.erb:13
+  Rendered events/show.html.erb within layouts/application (Duration: 7.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 8.6ms | ActiveRecord: 1.4ms (6 queries, 0 cached) | GC: 0.0ms)
+
+
