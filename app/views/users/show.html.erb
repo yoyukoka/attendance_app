@@ -1,8 +1,18 @@
-<h1>ユーザー情報</h1>
-<p>名前: <%= @user.name %></p>
-<p>メール: <%= @user.email %></p>
-<p>ポジション: <%= @user.position %></p>
+<div class="title">
+  <h1>ユーザー情報</h1>
+  <div class="user-links">
+    <%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
+
+<div class="profile-container">
+  <div class="profile-info">
+    <p><span class="label">名前</span> <span class="value"><%= @user.name %></span></p>
+    <p><span class="label">ポジション</span> <span class="value"><%= @user.position %></span></p>
+    <p><span class="label">メール</span> <span class="value"><%= @user.email %></span></p>
+  </div>
+</div>
+
 <% if current_user == @user %>
-  <%= link_to 'ユーザー情報を編集', edit_user_registration_path, class: 'btn btn-primary' %>
+  <%= link_to 'ユーザー情報を編集', edit_user_registration_path, class: 'btn btn-primary event-btn' %>
 <% end %>
-<%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>
