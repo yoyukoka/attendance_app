@@ -84,3 +84,17 @@
 .update-btn:hover {
   background-color: #0088cc;
 }
+
+.choice-links {
+  display: flex;
+  gap: 10px;
+}
+
+.choice-links a {
+  color: #0088cc;
+  text-decoration: none; /* 下線を無くす */
+}
+
+.choice-links a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
