@@ -1,11 +1,14 @@
 <% content_for :title, "New event" %>
+<div class="title">
+  <h1>イベント作成</h1>
+  <div class="user-links">
+    <%= link_to "イベント一覧に戻る", events_path %>
+  </div>
+</div>
 
-<h1>イベント作成</h1>
-
-<%= render "form", event: @event %>
+<div class="event-form-container">
+  <%= render "form", event: @event %>
+</div>
 
 <br>
 
-<div>
-  <%= link_to "イベント一覧に戻る", events_path %>
-</div>
