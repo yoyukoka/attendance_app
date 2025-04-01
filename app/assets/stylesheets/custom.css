@@ -22,10 +22,14 @@
   
   .input-field {
     width: 100%;
-    padding: 0.8rem;
+    margin: 0 auto; /* 中央揃え */
+    display: block; /* ブロック要素にすることで中央揃えが適用されやすくなる */
+    text-align: left; /* テキストを左揃えにする */
+    padding: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* パディングを含めた幅を計算 */
   }
   
   .login-btn {

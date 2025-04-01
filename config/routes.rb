@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index]
+  resources :users do
+    member do
+      patch :admin_toggle
+    end
+  end
 
   resources :events do
     resources :attendances, only: [:create]

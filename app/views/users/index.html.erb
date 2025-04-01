@@ -18,6 +18,9 @@
         <th>名前</th>
         <th>ポジション</th>
         <th>参加率</th>
+        <% if current_user.is_admin %>
+          <th>管理者権限</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +29,13 @@
           <td><%= user.name %></td>
           <td><%= user.position %></td>
           <td><%= user.attendance_rate %>%</td>
+          <% if current_user.is_admin %>
+            <td>
+              <%= form_with model: user, url: admin_toggle_user_path(user), method: :patch, local: true do |f| %>
+                <%= f.check_box :is_admin, checked: user.is_admin, onchange: 'this.form.submit();' %>
+              <% end %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

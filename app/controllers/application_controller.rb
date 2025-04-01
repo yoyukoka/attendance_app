@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   # ログイン後のリダイレクト先を設定
-  def after_sign_in_path_for(resource)
+  def after_sign_up_path_for(resource)
     edit_user_registration_path # /user/edit へのパス
   end
 end

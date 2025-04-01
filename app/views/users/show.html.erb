@@ -10,6 +10,9 @@
     <p><span class="label">名前</span> <span class="value"><%= @user.name %></span></p>
     <p><span class="label">ポジション</span> <span class="value"><%= @user.position %></span></p>
     <p><span class="label">メール</span> <span class="value"><%= @user.email %></span></p>
+    <% if @user.is_admin %>
+      <p><span class="label">役職</span> <span class="value">幹部</span></p>
+    <% end %>
   </div>
 </div>
 

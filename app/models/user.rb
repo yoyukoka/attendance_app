@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create :set_admin_for_first_user
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -32,5 +33,11 @@ class User < ApplicationRecord
     total_events = Event.count
     attended_events = attendances.where(status: '出席').count
     total_events.zero? ? 0 : (attended_events.to_f / total_events * 100).round(2)
+  end
+
+  private
+
+  def set_admin_for_first_user
+    self.is_admin = true if User.count.zero? # 最初のユーザー（IDが1になる）を管理者に設定
   end
 end
