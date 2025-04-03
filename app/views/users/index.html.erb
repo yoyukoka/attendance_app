@@ -9,6 +9,8 @@
   <%= form_with url: users_path, method: :get, local: true, html: { id: 'sort-form' } do %>
     <%= select_tag :sort, options_for_select([['ポジション順', 'position'], ['参加率順', 'attendance_rate']], params[:sort]), onchange: 'this.form.submit();' %>
   <% end %>
+
+  <p class="event-total">イベント総数: <%= Event.count %></p>
 </div>
 
 <div class="table-container">

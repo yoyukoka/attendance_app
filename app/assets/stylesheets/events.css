@@ -235,3 +235,10 @@
   border: 1px solid #ddd;
   border-radius: 8px;
 }
+
+.event-total {
+  font-size: 1rem;
+  color: #555;
+  text-align: right; /* テキストを右揃え */
+  margin-left: auto; /* 必要に応じて左側に余白を追加 */
+}

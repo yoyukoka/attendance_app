@@ -19186,3 +19186,360 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.8ms)
 
 
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+Started GET "/" for ::1 at 2025-04-03 09:35:05 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | GC: 0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.2ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 132.3ms | GC: 42.9ms)
+Completed 200 OK in 157ms (Views: 140.2ms | ActiveRecord: 1.0ms (0 queries, 0 cached) | GC: 43.8ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:35:05 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started POST "/users/sign_in" for ::1 at 2025-04-03 09:35:25 +0900
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 444ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 11.9ms)
+
+
+Started GET "/" for ::1 at 2025-04-03 09:35:26 +0900
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by EventsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 5.3ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.6ms)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2025-04-03 09:36:06 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 16.3ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | GC: 0.7ms)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 1.3ms (7 queries, 2 cached) | GC: 0.9ms)
+
+
+Started GET "/events" for ::1 at 2025-04-03 09:36:06 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (Duration: 4.0ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.9ms)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/users" for ::1 at 2025-04-03 09:36:29 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 6.8ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | GC: 1.8ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.4ms (7 queries, 2 cached) | GC: 2.2ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:36:29 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/users" for ::1 at 2025-04-03 09:36:32 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 7.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 0.6ms (7 queries, 2 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:36:32 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/users" for ::1 at 2025-04-03 09:36:46 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 6.6ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | GC: 1.4ms)
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.4ms (7 queries, 2 cached) | GC: 1.8ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:36:46 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/users" for ::1 at 2025-04-03 09:37:44 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 6.3ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | GC: 1.1ms)
+Completed 200 OK in 25ms (Views: 18.9ms | ActiveRecord: 0.8ms (7 queries, 2 cached) | GC: 1.4ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:37:44 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/events" for ::1 at 2025-04-03 09:39:18 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (Duration: 4.0ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.8ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2025-04-03 09:39:23 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 6.6ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | GC: 0.9ms)
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 0.4ms (7 queries, 2 cached) | GC: 0.9ms)
+
+
+Started GET "/users?sort=attendance_rate" for ::1 at 2025-04-03 09:39:25 +0900
+Processing by UsersController#index as HTML
+  Parameters: {"sort"=>"attendance_rate"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `sort_by'
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mCACHE Attendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mCACHE Attendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 9.3ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | GC: 0.2ms)
+Completed 200 OK in 23ms (Views: 11.1ms | ActiveRecord: 0.9ms (11 queries, 6 cached) | GC: 0.4ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:39:25 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/users?sort=attendance_rate" for ::1 at 2025-04-03 09:39:48 +0900
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+Processing by UsersController#index as HTML
+  Parameters: {"sort"=>"attendance_rate"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `sort_by'
+  [1m[36mEvent Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mCACHE Attendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mCACHE Attendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 4.2ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | GC: 5.9ms)
+Completed 200 OK in 38ms (Views: 22.5ms | ActiveRecord: 1.6ms (11 queries, 6 cached) | GC: 7.2ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:39:48 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/users?sort=position" for ::1 at 2025-04-03 09:39:59 +0900
+Processing by UsersController#index as HTML
+  Parameters: {"sort"=>"position"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC[0m
+  ↳ app/views/users/index.html.erb:29
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 12.8ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | GC: 0.5ms)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 0.9ms (7 queries, 2 cached) | GC: 0.6ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:39:59 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/users?sort=attendance_rate" for ::1 at 2025-04-03 09:40:01 +0900
+Processing by UsersController#index as HTML
+  Parameters: {"sort"=>"attendance_rate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `sort_by'
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mCACHE Attendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:33:in `attendance_rate'
+  [1m[36mCACHE Attendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 2], ["status", "出席"]]
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 9.2ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | GC: 0.5ms)
+Completed 200 OK in 27ms (Views: 13.5ms | ActiveRecord: 1.8ms (11 queries, 6 cached) | GC: 1.2ms)
+
+
+Started GET "/manifest.json" for ::1 at 2025-04-03 09:40:01 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
