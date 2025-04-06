@@ -1,0 +1,45 @@
+<div class="title">
+  <h1>メンバー一覧</h1>
+  <div class="user-links">
+    <%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
+
+<div class="choice-links">
+  <%= form_with url: users_path, method: :get, local: true, html: { id: 'sort-form' } do %>
+    <%= select_tag :sort, options_for_select([['ポジション順', 'position'], ['参加率順', 'attendance_rate']], params[:sort]), onchange: 'this.form.submit();' %>
+  <% end %>
+
+  <p class="event-total">イベント総数: <%= Event.count %></p>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>ポジション</th>
+        <th>参加率</th>
+        <% if current_user.is_admin %>
+          <th>管理者権限</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.position %></td>
+          <td><%= user.attendance_rate %>%</td>
+          <% if current_user.is_admin %>
+            <td>
+              <%= form_with model: user, url: admin_toggle_user_path(user), method: :patch, local: true do |f| %>
+                <%= f.check_box :is_admin, checked: user.is_admin, onchange: 'this.form.submit();' %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

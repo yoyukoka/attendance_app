@@ -9,7 +9,8 @@ class EventsController < ApplicationController
 
   def show
     @attendance = @event.attendances.find_by(user: current_user)
-    @positions_count = @event.attendances.joins(:user).group('users.position').count
+    @attendances = @event.attendances.includes(:user)
+    @positions_count = @event.attendances.joins(:user).where(status: '出席').group('users.position').count
   end
 
   def new
@@ -19,7 +20,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to @event, notice: 'イベントが作成されました。'
+      redirect_to events_path, notice: 'イベントが作成されました。'
     else
       render :new
     end

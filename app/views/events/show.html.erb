@@ -1,16 +1,55 @@
-<h1><%= @event.title %></h1>
-<p>日時: <%= @event.date.strftime('%Y年%m月%d日 %H:%M') %></p>
-<p><%= @event.details %></p>
+<div class="title">
+  <h1>イベント詳細</h1>
+  <div class="user-links">
+    <%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
 
-<h3>出席登録</h3>
-<%= form_with url: event_attendances_path(@event), method: :post do %>
-  <%= select_tag :status, options_for_select([['出席', 'present'], ['欠席', 'absent']], @attendance&.status) %>
-  <%= submit_tag '登録' %>
-<% end %>
+<div class="event-details">
+  <h1 class="event-title"><%= @event.title %></h1>
+  <p class="event-date">日時: <%= @event.date.strftime('%Y年%m月%d日 %H:%M') %></p>
+  <p class="event-description"><%= @event.details %></p>
+</div>
 
-<h3>ポジション別出席者数</h3>
-<ul>
-  <% @positions_count.each do |position, count| %>
-    <li><%= position || '未設定' %>: <%= count %>人</li>
+<div class="attendance-section">
+  <h3>出席登録</h3>
+  <%= form_with url: event_attendances_path(@event), method: :post, class: "attendance-form" do %>
+    <div class="form-group">
+      <%= select_tag :status, options_for_select([['出席', '出席'], ['欠席', '欠席']], @attendance&.status), class: "form-control" %>
+    </div>
+    <div class="form-actions">
+      <%= submit_tag '登録', class: "btn btn-primary" %>
+    </div>
   <% end %>
-</ul>
+</div>
+
+<div class="attendees-section">
+  <h3>出席者</h3>
+  <ul class="attendees-list">
+    <% @attendances.select {|attendance| attendance.status == '出席'}.each do |attendance| %>
+      <li class="attendee-item">・<%= attendance.user.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="position-stats">
+  <h3>ポジション別出席者数</h3>
+  <ul>
+    <% User.positions.keys.each do |position| %>
+      <li><%= position %>: <%= @positions_count[position] || 0 %>人</li>
+    <% end %>
+  </ul>
+</div>
+
+<% if current_user&.is_admin? %>
+  <h3>欠席者</h3>
+  <ul>
+  <% @attendances.select {|attendance| attendance.status == '欠席'}.each do |attendance| %>
+    <li><%= attendance.user.name %></li>
+  <% end %>
+  </ul>
+  <%= link_to '編集', edit_event_path(@event), class: 'btn btn-primary event-btn' %><br>
+  <%= form_with model: @event, method: :delete, local: true do %>
+    <%= submit_tag '削除', data: { confirm: '本当にこのイベントを削除しますか？' }, class: 'btn btn-primary event-btn' %>
+  <% end %>
+<% end %>
