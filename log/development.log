@@ -19543,3 +19543,15 @@ Started GET "/manifest.json" for ::1 at 2025-04-03 09:40:01 +0900
   
 ActionController::RoutingError (No route matches [GET] "/manifest.json"):
   
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
