@@ -18,4 +18,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(_resource)
     show_user_path
   end
+
+  # サインアップ後のリダイレクト先を指定
+  def after_sign_up_path_for(resource)
+    edit_user_registration_path # users/edit へのパス
+  end
 end
