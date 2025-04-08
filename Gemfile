@@ -64,3 +64,7 @@ gem 'devise', '~> 4.9'
 gem 'groupdate', '~> 6.5'
 
 gem 'pg'
+
+gem 'dotenv-rails', groups: %i[development test]
+
+gem "httparty", "~> 0.23.1"
