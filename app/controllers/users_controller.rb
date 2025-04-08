@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_admin, only: [:admin_toggle]
+  before_action :ensure_admin, only: %i[admin_toggle destroy]
 
   def index
     @users = case params[:sort]
@@ -15,6 +15,16 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = 'ユーザーを削除しました。'
+    else
+      flash[:alert] = 'ユーザーの削除に失敗しました。'
+    end
+    redirect_to users_path
   end
 
   def admin_toggle

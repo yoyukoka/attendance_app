@@ -37,6 +37,9 @@
                 <%= f.check_box :is_admin, checked: user.is_admin, onchange: 'this.form.submit();' %>
               <% end %>
             </td>
+            <td>
+              <%= link_to '削除', user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+            </td>
           <% end %>
         </tr>
       <% end %>
