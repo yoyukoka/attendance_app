@@ -20780,3 +20780,184 @@ in Rails 8.0. Positional arguments should be used instead:
 
 enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
  (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+[dotenv] Set [36mLINE_CHANNEL_ACCESS_TOKEN[0m, [36mHOMEPAGE_LINK[0m, and [36mGROUP_ID[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+Started GET "/" for ::1 at 2025-04-08 21:04:04 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 4.1ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | GC: 0.3ms)
+Completed 200 OK in 29ms (Views: 9.0ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/events/new" for ::1 at 2025-04-08 21:04:05 +0900
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 5.3ms | GC: 0.2ms)
+  Rendered events/new.html.erb within layouts/application (Duration: 6.5ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.4ms)
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/events" for ::1 at 2025-04-08 21:04:15 +0900
+Processing by EventsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"title"=>"a", "date"=>"2025-04-16T21:04", "details"=>"sa"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:22:in `create'
+  [1m[36mEvent Create (1.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "date", "details", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "a"], ["date", "2025-04-16 21:04:00"], ["details", "sa"], ["created_at", "2025-04-08 12:04:15.292726"], ["updated_at", "2025-04-08 12:04:15.292726"]]
+  ↳ app/controllers/events_controller.rb:22:in `create'
+LINE Notify Response: {"message":"The request body has 1 error(s)","details":[{"message":"May not be empty","property":"to"}]}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:22:in `create'
+Redirected to http://localhost:3000/events
+Completed 302 Found in 134ms (ActiveRecord: 2.4ms (2 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/events" for ::1 at 2025-04-08 21:04:15 +0900
+Processing by EventsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (Duration: 4.7ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.2ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+[dotenv] Set [36mLINE_CHANNEL_ACCESS_TOKEN[0m, [36mHOMEPAGE_LINK[0m, and [36mGROUP_ID[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB"}
+ (called from <class:User> at /Users/miyakoya/Desktop/attendance_app/app/models/user.rb:14)
+Started GET "/users/show" for ::1 at 2025-04-08 21:05:04 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.1ms)
+Completed 200 OK in 43ms (Views: 5.6ms | ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 3.5ms)
+
+
+Started GET "/events/16" for ::1 at 2025-04-08 21:05:05 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:47:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."user_id" = ? LIMIT ?[0m  [["event_id", 16], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "users"."position" AS "users_position" FROM "attendances" INNER JOIN "users" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ? GROUP BY "users"."position"[0m  [["event_id", 16], ["status", "出席"]]
+  ↳ app/controllers/events_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 16]]
+  ↳ app/views/events/show.html.erb:29
+  Rendered events/show.html.erb within layouts/application (Duration: 4.6ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | GC: 0.4ms)
+Completed 200 OK in 30ms (Views: 5.6ms | ActiveRecord: 0.9ms (5 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/events/16/edit" for ::1 at 2025-04-08 21:05:06 +0900
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:47:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 5.1ms | GC: 0.2ms)
+  Rendered events/edit.html.erb within layouts/application (Duration: 6.2ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.2ms)
+Completed 200 OK in 12ms (Views: 6.9ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started DELETE "/events/16" for ::1 at 2025-04-08 21:05:08 +0900
+Processing by EventsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"削除", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:47:in `set_event'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:40:in `destroy'
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 16]]
+  ↳ app/controllers/events_controller.rb:40:in `destroy'
+  [1m[36mEvent Destroy (0.1ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/events_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:40:in `destroy'
+Redirected to http://localhost:3000/events
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2025-04-08 21:05:08 +0900
+Processing by EventsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/events/new" for ::1 at 2025-04-08 21:05:09 +0900
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/events" for ::1 at 2025-04-08 21:05:17 +0900
+Processing by EventsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"title"=>"通常練習", "date"=>"2025-04-15T21:05", "details"=>"test"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:22:in `create'
+  [1m[36mEvent Create (0.8ms)[0m  [1m[32mINSERT INTO "events" ("title", "date", "details", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "通常練習"], ["date", "2025-04-15 21:05:00"], ["details", "test"], ["created_at", "2025-04-08 12:05:17.901986"], ["updated_at", "2025-04-08 12:05:17.901986"]]
+  ↳ app/controllers/events_controller.rb:22:in `create'
+LINE Notify Response: {"sentMessages":[{"id":"555799997481222709","quoteToken":"G7Oo70SGBeSHuJMxS0XGcHT6AFsALplzG77wGhj6szA0-JqVcEGbItmSB6mJIIPd0jIu2mI66Yiol-tO_BfCpswStVA35P5yDafSMuaxiIhu07cQKJqkjp0m6d1lNAZmgONwzsx-SCYkbS5sp0_07w"}]}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:22:in `create'
+Redirected to http://localhost:3000/events
+Completed 302 Found in 196ms (ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2025-04-08 21:05:18 +0900
+Processing by EventsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (Duration: 3.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+

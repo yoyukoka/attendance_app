@@ -19,11 +19,11 @@ class Event < ApplicationRecord
       'Authorization' => "Bearer #{ENV['LINE_CHANNEL_ACCESS_TOKEN']}"
     }
     body = {
-      to: 'U0fbb857406a0d68521ddc7d28c94b2c3',
+      to: ENV['GROUP_ID'], # グループIDを指定
       messages: [
         {
           type: 'text',
-          text: "新しいイベントが作成されました！\nタイトル: #{title}\n日時: #{date}\n詳細: #{details}\nlink: #{ENV['HOMEPAGE_LINK']}"
+          text: "新しいイベントが作成されました！\nタイトル: #{title}\n日時: #{date}\n詳細: #{details}\nリンク: #{ENV['HOMEPAGE_LINK']}"
         }
       ]
     }
