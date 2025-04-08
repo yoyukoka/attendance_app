@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   resources :events do
     resources :attendances, only: [:create]
   end
+
+  post '/webhook', to: 'webhooks#callback'
 end
