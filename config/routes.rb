@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get 'users/show', to: 'users#show', as: :show_user
   end
 
-  resources :users, only: [:index]
+  resources :users, only: %i[index destroy]
   resources :users do
     member do
       patch :admin_toggle
