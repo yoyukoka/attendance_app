@@ -22,7 +22,8 @@ class User < ApplicationRecord
     SO: 'SO',
     CTB: 'CTB',
     WTB: 'WTB',
-    FB: 'FB'
+    FB: 'FB',
+    MG: 'MG'
   }
 
   scope :order_by_enum, lambda { |field, values|
