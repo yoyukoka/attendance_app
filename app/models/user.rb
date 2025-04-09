@@ -35,6 +35,12 @@ class User < ApplicationRecord
     total_events.zero? ? 0 : (attended_events.to_f / total_events * 100).round(2)
   end
 
+  def responses_rate
+    total_events = Event.count
+    responded_events = attendances.where.not(status: nil).count
+    total_events.zero? ? 0 : (responded_events.to_f / total_events * 100).round(2)
+  end
+
   private
 
   def set_admin_for_first_user
