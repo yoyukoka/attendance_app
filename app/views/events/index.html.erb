@@ -13,6 +13,9 @@
         <h2><%= link_to event.title, event %></h2>
         <p>日時: <%= event.date.strftime('%Y年%m月%d日 %H:%M') %></p>
         <p><%= event.details %></p>
+        <div class="attendance-info">
+          <p>出席人数: <%= event.attendances.where(status: '出席').count %>｜欠席人数: <%= event.attendances.where(status: '欠席').count %></p>
+        </div>
       </div>
     <% end %>
 

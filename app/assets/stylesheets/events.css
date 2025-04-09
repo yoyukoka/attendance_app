@@ -30,6 +30,11 @@
     margin-bottom: 0;
   }
 
+  .attendance-info {
+    font-size: 14px;
+    color: #555;
+  }
+
 .title {
   background-color: #4db8ff;
   display: flex;
