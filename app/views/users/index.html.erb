@@ -20,6 +20,7 @@
         <th>名前</th>
         <th>ポジション</th>
         <th>参加率</th>
+        <th>回答率</th>
         <% if current_user.is_admin %>
           <th>管理者権限</th>
         <% end %>
@@ -31,6 +32,7 @@
           <td><%= user.name %></td>
           <td><%= user.position %></td>
           <td><%= user.attendance_rate %>%</td>
+          <td><%= user.responses_rate %>%</td>
           <% if current_user.is_admin %>
             <td>
               <%= form_with model: user, url: admin_toggle_user_path(user), method: :patch, local: true do |f| %>
