@@ -21331,3 +21331,610 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.4ms (8 queries, 0 cached) | GC: 0.3ms)
 
 
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB", :MG=>"MG"}
+ (called from <class:User> at /Users/miyakoya/attendance_app/app/models/user.rb:14)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB", :MG=>"MG"}
+ (called from <class:User> at /Users/miyakoya/attendance_app/app/models/user.rb:14)
+Started GET "/" for ::1 at 2025-04-10 09:09:53 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.3ms)
+Completed 200 OK in 73ms (Views: 18.0ms | ActiveRecord: 3.7ms (0 queries, 0 cached) | GC: 39.4ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-04-10 09:10:00 +0900
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 452ms (ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/" for ::1 at 2025-04-10 09:10:01 +0900
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by EventsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  Rendered events/index.html.erb within layouts/application (Duration: 15.6ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | GC: 1.0ms)
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 1.4ms (7 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:02 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 6.9ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | GC: 0.2ms)
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 0.5ms (7 queries, 2 cached) | GC: 0.9ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:02 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.6ms (7 queries, 2 cached) | GC: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2025-04-10 09:10:05 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:22
+  Rendered events/index.html.erb within layouts/application (Duration: 9.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.6ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:08 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 6.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 0.5ms (7 queries, 2 cached) | GC: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2025-04-10 09:10:09 +0900
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 7ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-04-10 09:10:09 +0900
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2025-04-10 09:10:11 +0900
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-04-10 09:10:21 +0900
+Processing by Users::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"サインアップ"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/models/user.rb:48:in `set_admin_for_first_user'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name", "position", "is_admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "[FILTERED]"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2025-04-10 00:10:22.394505"], ["updated_at", "2025-04-10 00:10:22.394505"], ["name", nil], ["position", nil], ["is_admin", 0]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/edit
+Completed 303 See Other in 438ms (ActiveRecord: 3.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/edit" for ::1 at 2025-04-10 09:10:22 +0900
+Processing by Users::RegistrationsController#edit as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_users_registrations_edit_html_erb__3086942330929193440_28740 at /Users/miyakoya/attendance_app/app/views/users/registrations/edit.html.erb:10)
+  Rendered users/registrations/edit.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PUT "/users" for ::1 at 2025-04-10 09:10:31 +0900
+Processing by Users::RegistrationsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"川畑優斗", "position"=>"FL"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `update_resource'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "name" = ?, "position" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2025-04-10 00:10:31.946967"], ["name", "川畑優斗"], ["position", "FL"], ["id", 5]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `update_resource'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `update_resource'
+Redirected to http://localhost:3000/users/show
+Completed 303 See Other in 12ms (ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/show" for ::1 at 2025-04-10 09:10:31 +0900
+Processing by UsersController#show as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2025-04-10 09:10:33 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:22
+  Rendered events/index.html.erb within layouts/application (Duration: 7.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.5ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:34 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 5], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 5]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 8.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.7ms (11 queries, 4 cached) | GC: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2025-04-10 09:10:36 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:22
+  Rendered events/index.html.erb within layouts/application (Duration: 9.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.6ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:36 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 5], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 5]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 18.2ms | GC: 10.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | GC: 10.2ms)
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 0.7ms (11 queries, 4 cached) | GC: 10.2ms)
+
+
+Started GET "/users/show" for ::1 at 2025-04-10 09:10:37 +0900
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.3ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/users/edit" for ::1 at 2025-04-10 09:10:38 +0900
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_users_registrations_edit_html_erb__3086942330929193440_28740 at /Users/miyakoya/attendance_app/app/views/users/registrations/edit.html.erb:10)
+  Rendered users/registrations/edit.html.erb within layouts/application (Duration: 1.9ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.3ms)
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started PUT "/users" for ::1 at 2025-04-10 09:10:41 +0900
+Processing by Users::RegistrationsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"川畑優斗", "position"=>"MG"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `update_resource'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "position" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2025-04-10 00:10:41.443821"], ["position", "MG"], ["id", 5]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `update_resource'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `update_resource'
+Redirected to http://localhost:3000/users/show
+Completed 303 See Other in 10ms (ActiveRecord: 1.6ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users/show" for ::1 at 2025-04-10 09:10:41 +0900
+Processing by UsersController#show as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/events" for ::1 at 2025-04-10 09:10:42 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:22
+  Rendered events/index.html.erb within layouts/application (Duration: 10.8ms | GC: 1.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | GC: 1.1ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.9ms (8 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:43 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 5], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 5]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 9.2ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | GC: 1.0ms)
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 0.9ms (11 queries, 4 cached) | GC: 1.0ms)
+
+
+Started GET "/events" for ::1 at 2025-04-10 09:10:44 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:22
+  Rendered events/index.html.erb within layouts/application (Duration: 9.8ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | GC: 0.8ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.5ms (8 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:45 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 5], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 5]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 9.3ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 0.8ms)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.6ms (11 queries, 4 cached) | GC: 1.0ms)
+
+
+Started GET "/events" for ::1 at 2025-04-10 09:10:46 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:22
+  Rendered events/index.html.erb within layouts/application (Duration: 10.5ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | GC: 0.7ms)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.6ms (8 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2025-04-10 09:10:47 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY position = 'PR' DESC, position = 'HO' DESC, position = 'LO' DESC, position = 'FL' DESC, position = 'No8' DESC, position = 'SH' DESC, position = 'SO' DESC, position = 'CTB' DESC, position = 'WTB' DESC, position = 'FB' DESC, position = 'MG' DESC[0m
+  ↳ app/views/users/index.html.erb:30
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 1], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:34:in `attendance_rate'
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" = ?[0m  [["user_id", 5], ["status", "出席"]]
+  ↳ app/models/user.rb:35:in `attendance_rate'
+  [1m[36mCACHE Event Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  ↳ app/models/user.rb:40:in `responses_rate'
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."status" IS NOT NULL[0m  [["user_id", 5]]
+  ↳ app/models/user.rb:41:in `responses_rate'
+  Rendered users/index.html.erb within layouts/application (Duration: 10.3ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | GC: 0.8ms)
+Completed 200 OK in 15ms (Views: 10.6ms | ActiveRecord: 0.8ms (11 queries, 4 cached) | GC: 0.9ms)
+
+
+Started GET "/users/show" for ::1 at 2025-04-10 09:10:48 +0900
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/events" for ::1 at 2025-04-10 09:10:50 +0900
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."date" ASC[0m
+  ↳ app/views/events/index.html.erb:11
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 12], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 9], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "出席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mAttendance Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."status" = ?[0m  [["event_id", 17], ["status", "欠席"]]
+  ↳ app/views/events/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:22
+  Rendered events/index.html.erb within layouts/application (Duration: 10.0ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | GC: 0.7ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.6ms (8 queries, 0 cached) | GC: 0.7ms)
+
+
