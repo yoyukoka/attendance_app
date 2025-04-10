@@ -10,7 +10,9 @@
     <%= select_tag :sort, options_for_select([['ポジション順', 'position'], ['参加率順', 'attendance_rate']], params[:sort]), onchange: 'this.form.submit();' %>
   <% end %>
 
-  <p class="event-total">イベント総数: <%= Event.count %></p>
+  <div class="event-total">
+    <p>メンバー人数: <%= @users.count %> イベント総数: <%= Event.count %></p>
+  </div>
 </div>
 
 <div class="table-container">
