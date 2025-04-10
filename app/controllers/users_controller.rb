@@ -4,12 +4,10 @@ class UsersController < ApplicationController
 
   def index
     @users = case params[:sort]
-             when 'position'
-               User.order_by_enum(:position, User.positions.keys)
              when 'attendance_rate'
                User.all.sort_by(&:attendance_rate).reverse
              else
-               User.all
+               User.order_by_enum(:position, User.positions.keys)
              end
   end
 
