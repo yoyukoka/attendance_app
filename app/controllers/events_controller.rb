@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
-    @events = Event.all.order(date: :asc)
+    @events = Event.active.order(date: :asc)
+  end
+
+  def archived
+    @events = Event.archived.order(date: :desc)
   end
 
   def show

@@ -21,6 +21,7 @@
 
     <% if current_user&.is_admin? %>
       <%= link_to '新しいイベントを作成', new_event_path, class: 'btn btn-primary event-btn' %>
+      <%= link_to 'アーカイブ済みイベント', archived_events_path, class: 'btn btn-secondary event-btn' %>
     <% end %>
   </div>
 

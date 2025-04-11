@@ -1,0 +1,19 @@
+<div class="title">
+  <h1>アーカイブ済みイベント</h1>
+  <div class="user-links">
+    <%= link_to 'イベント一覧に戻る', events_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
+
+<div class="event-container">
+  <% @events.each do |event| %>
+    <div class="event-card">
+      <h2><%= link_to event.title, event %></h2>
+      <p>日時: <%= event.date.strftime('%Y年%m月%d日 %H:%M') %></p>
+      <p><%= event.details %></p>
+      <div class="attendance-info">
+        <p>出席人数: <%= event.attendances.where(status: '出席').count %>｜欠席人数: <%= event.attendances.where(status: '欠席').count %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
