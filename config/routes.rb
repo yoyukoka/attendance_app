@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    collection do
+      get :archived
+    end
     resources :attendances, only: [:create]
   end
 
