@@ -15,7 +15,7 @@
   <h3>出席登録</h3>
   <%= form_with url: event_attendances_path(@event), method: :post, class: "attendance-form" do %>
     <div class="form-group">
-      <%= select_tag :status, options_for_select([['出席', '出席'], ['欠席', '欠席']], @attendance&.status), class: "form-control" %>
+      <%= select_tag :status, options_for_select([['出席', '出席'], ['欠席', '欠席']], @attendance&.status), class: "form-controls" %>
     </div>
     <div class="form-actions">
       <%= submit_tag '登録', class: "btn btn-primary" %>
