@@ -1,12 +1,17 @@
-<% content_for :title, "Editing event" %>
+<% content_for :title, "イベント編集" %>
 
-<h1>イベント編集</h1>
+<div class="title">
+  <h1>イベント編集</h1>
+  <div class="user-links">
+    <%= link_to "イベント詳細に戻る", @event, class: "btn btn-secondary" %> <br>
+    <%= link_to "イベント一覧に戻る", events_path, class: "btn btn-secondary" %>
+  </div>
+</div>
 
-<%= render "form", event: @event %>
+<div class="event-form-container">
+  <%= render "form", event: @event %>
+</div>
 
 <br>
 
-<div>
-  <%= link_to "イベント詳細に戻る", @event %> <br>
-  <%= link_to "イベント一覧に戻る", events_path %>
-</div>
+
