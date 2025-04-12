@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @users = case params[:sort]
              when 'attendance_rate'
                User.all.sort_by(&:attendance_rate).reverse
+             when 'user_id'
+               User.order(:id) # ユーザーID順でソート
              else
                User.order_by_enum(:position, User.positions.keys)
              end
