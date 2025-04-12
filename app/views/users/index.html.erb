@@ -7,7 +7,7 @@
 
 <div class="choice-links">
   <%= form_with url: users_path, method: :get, local: true, html: { id: 'sort-form' } do %>
-    <%= select_tag :sort, options_for_select([['ポジション順', 'position'], ['参加率順', 'attendance_rate']], params[:sort]), onchange: 'this.form.submit();' %>
+    <%= select_tag :sort, options_for_select([['ポジション順', 'position'], ['参加率順', 'attendance_rate'], ['ユーザーID順', 'user_id']], params[:sort]), onchange: 'this.form.submit();' %>
   <% end %>
 
   <div class="event-total">
