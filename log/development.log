@@ -25812,3 +25812,9 @@ Processing by EventsController#index as TURBO_STREAM
 Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms (3 queries, 0 cached) | GC: 0.4ms)
 
 
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB", :MG=>"MG"}
+ (called from <class:User> at /Users/miyakoya/attendance_app/app/models/user.rb:14)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
