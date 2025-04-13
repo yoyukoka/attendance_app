@@ -43,10 +43,10 @@
 
 <div class="attendees-section">
   <h3>欠席者</h3>
-  <ul>
-  <% @attendances.select {|attendance| attendance.status == '欠席'}.each do |attendance| %>
-    <li><%= attendance.user.name %></li>
-  <% end %>
+  <ul class="attendees-list">
+    <% @attendances.select {|attendance| attendance.status == '欠席'}.each do |attendance| %>
+      <li class="attendee-item">・<%= attendance.user.name %></li>
+    <% end %>
   </ul>
 </div>
 
