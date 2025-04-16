@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: dolphins-attendance
+    env: ruby
+    buildCommand: bundle install
+    startCommand: bundle exec puma -C config/puma.rb
+    preDeployCommand: bundle exec rails db:migrate
