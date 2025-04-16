@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    member do
+      patch :archive
+    end
     collection do
       get :archived
     end

@@ -51,8 +51,9 @@
 </div>
 
 <% if current_user&.is_admin? %>
-  <%= link_to '編集', edit_event_path(@event), class: 'btn btn-primary event-btn' %><br>
-  <%= form_with model: @event, method: :delete, local: true do %>
-    <%= submit_tag '削除', data: { confirm: '本当にこのイベントを削除しますか？' }, class: 'btn btn-primary event-btn' %>
+<%= button_to 'アーカイブする', archive_event_path(@event), method: :patch, class: 'event-btn' %>
+  <%= link_to '編集', edit_event_path(@event), class: 'event-btn' %><br>
+  <%= form_with model: @event, method: :delete, local: true, html: { class: 'event-btn-form' } do %>
+    <%= submit_tag '削除', data: { confirm: '本当にこのイベントを削除しますか？' }, class: 'event-btn' %>
   <% end %>
 <% end %>

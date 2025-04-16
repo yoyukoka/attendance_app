@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :check_admin, only: %i[new create edit update destroy]
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy archive]
 
   def index
     @events = Event.active.order(date: :asc)
@@ -43,6 +43,14 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to events_url, notice: 'イベントが削除されました。'
+  end
+
+  def archive
+    if @event.update(archived: true)
+      redirect_to events_path, notice: 'イベントがアーカイブされました。'
+    else
+      redirect_to events_path, alert: 'イベントのアーカイブに失敗しました。'
+    end
   end
 
   private

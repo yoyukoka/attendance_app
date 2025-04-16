@@ -1,0 +1,250 @@
+.event-container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+  }
+  
+  .event-card {
+    background-color: #fff;
+    border-left: 5px solid #4db8ff;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-card h2 {
+    margin-top: 0;
+    color: #333;
+  }
+
+  .event-card h2 a {
+    text-decoration: none; /* 下線を無くす */
+    color: inherit; /* リンクの色を継承 */
+  }
+
+  .event-card h2 a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+  }
+  
+  .event-card p {
+    margin-bottom: 0;
+  }
+
+  .attendance-info {
+    font-size: 14px;
+    color: #555;
+  }
+
+.title {
+  background-color: #4db8ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.title h1 {
+  color: #fff;
+  margin: 0;
+}
+
+.user-links {
+  display: flex;
+  gap: 10px;
+}
+
+.user-links a {
+  color: #fff;
+  text-decoration: none; /* 下線を無くす */
+}
+
+.user-links a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.event-btn {
+  background-color: #4db8ff;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none; /* 下線を無くす */
+  margin-bottom: 10px; /* ボタン間の余白を追加 */
+}
+
+.event-btn:hover {
+  background-color: #0088cc;
+}
+
+.update-btn{
+  background-color: #4db8ff;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none; /* 下線を無くす */
+}
+
+.update-btn:hover {
+  background-color: #0088cc;
+}
+
+.choice-links {
+  display: flex;
+  gap: 10px;
+}
+
+.choice-links a {
+  color: #0088cc;
+  text-decoration: none; /* 下線を無くす */
+}
+
+.choice-links a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.event-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-form-container input,
+.event-form-container select,
+.event-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.event-form-container input:focus,
+.event-form-container select:focus,
+.event-form-container textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.event-form-container .actions {
+  text-align: center;
+}
+
+.event-form-container .actions input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.event-form-container .actions input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* 全体のレイアウト */
+.event-details {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.event-title {
+  font-size: 2rem;
+  color: #333;
+}
+
+.event-date {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.event-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* 出席登録フォーム */
+.attendance-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.attendance-form .form-group {
+  margin-bottom: 15px;
+}
+
+.attendance-form .form-controls {
+  width: 85px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.attendance-form .form-actions {
+  text-align: left;
+}
+
+.attendance-form .btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.attendance-form .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* 出席者リスト */
+.attendees-section {
+  margin-top: 20px;
+}
+
+.attendees-list {
+  list-style: none;
+  padding: 0;
+}
+
+.attendee-item {
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.attendee-item:last-child {
+  border-bottom: none;
+}
+
+/* ポジション別出席者数 */
+.position-stats {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.event-total {
+  font-size: 1rem;
+  color: #555;
+  text-align: right; /* テキストを右揃え */
+  margin-left: auto; /* 必要に応じて左側に余白を追加 */
+}

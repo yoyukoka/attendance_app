@@ -62,6 +62,10 @@
   text-decoration: underline; /* ホバー時に下線を表示 */
 }
 
+.event-btn-form {
+  margin-top: 10px; /* ボタンの上に余白を追加 */
+}
+
 .event-btn {
   background-color: #4db8ff;
   color: white;
@@ -70,6 +74,7 @@
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none; /* 下線を無くす */
+  margin-bottom: 100px; /* ボタン間の余白を追加 */
 }
 
 .event-btn:hover {
