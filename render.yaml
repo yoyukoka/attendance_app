@@ -3,5 +3,4 @@ services:
     name: dolphins-attendance
     env: ruby
     buildCommand: bundle install
-    startCommand: bundle exec puma -C config/puma.rb
-    preDeployCommand: bundle exec rails db:migrate
+    startCommand: bundle exec rails db:migrate && bundle exec puma -C config/puma.rb
