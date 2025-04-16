@@ -8,8 +8,8 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :date, presence: true
 
-  scope :active, -> { where('date >= ?', Time.current) }
-  scope :archived, -> { where('date < ?', Time.current) }
+  scope :archived, -> { where(archived: true) }
+  scope :active, -> { where(archived: false) }
 
   private
 
