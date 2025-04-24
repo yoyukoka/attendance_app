@@ -14,7 +14,6 @@ class Event < ApplicationRecord
   private
 
   def notify_line
-    Rails.logger.info('notify_line メソッドが呼び出されました')
     return unless ENV['LINE_CHANNEL_ACCESS_TOKEN']
 
     url = 'https://api.line.me/v2/bot/message/push'

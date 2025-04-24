@@ -36,6 +36,9 @@
   }
 
 .title {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background-color: #4db8ff;
   display: flex;
   justify-content: space-between;
