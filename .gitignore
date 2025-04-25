@@ -2,3 +2,5 @@
 /config/master.key
 
 .env
+
+/log/*.log
