@@ -27938,3 +27938,11 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 0.8ms (10 queries, 0 cached) | GC: 10.2ms)
 
 
+[dotenv] Set [36mGROUP_ID[0m, [36mLINE_CHANNEL_ACCESS_TOKEN[0m, [36mHOMEPAGE_LINK[0m, [36mSUPABACE_PASSWORD[0m, [36mDATABASE_URL[0m, [36mSUPABACE_HOST[0m, [36mSUPABACE_USER[0m, [36mSUPABACE_DB[0m, and [36mSUPABACE_PORT[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :position, {:PR=>"PR", :HO=>"HO", :LO=>"LO", :FL=>"FL", :No8=>"No8", :SH=>"SH", :SO=>"SO", :CTB=>"CTB", :WTB=>"WTB", :FB=>"FB", :MG=>"MG"}
+ (called from <class:User> at /Users/miyakoya/attendance_app/app/models/user.rb:14)
+  [1m[36mActiveRecord::SchemaMigration Load (91.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
