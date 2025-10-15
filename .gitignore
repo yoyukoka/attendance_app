@@ -1,4 +1,29 @@
-
+# Rails関連
 /config/master.key
+/config/credentials/*.key
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+/public/packs
+/public/assets
 
+# 環境変数
 .env
+
+# Node.js関連
+/node_modules
+
+# OS固有
+.DS_Store
+Thumbs.db
+
+# エディタ固有
+.idea/
+.vscode/
+
+# テスト関連
+/spec/examples.txt
+/test/tmp
